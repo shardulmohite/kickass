@@ -1,0 +1,30 @@
+<h1>Asss</h1>
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.ass.name", :default => t("activerecord.labels.name", :default => "Name")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @asses.each do |ass| -%>
+   <tr>
+    <td><%= ass.id %></td>
+        <td><%= link_to ass.name, ass_path(ass) %>
+    </td>
+        <td><%= ass.created_at %></td>
+    <td>
+      <%= link_to "Show", ass_path(ass) %>
+      <%= link_to "Edit", edit_ass_path(ass) %>
+      <%= link_to "Destroy", ass_path(ass), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_ass_path, :class => 'btn btn-primary' %>
